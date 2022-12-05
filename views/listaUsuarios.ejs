@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include ("./partials/head")%>
+<body>
+    <%-include ("./partials/header")%>
+   
+<main>
+            <h2 class="edit-user-super-admin">Listado de Usuarios</h2>
+                <ul>
+                    <% for( let obj of usuarios) { %>
+                    <li>
+                        <a href="/users/particular/<%= obj.id %>">
+                            <%= obj.email %> 
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+
+
+
+
+</main>
+    <%-include ("./partials/footer")%>
+</body>
+</html>

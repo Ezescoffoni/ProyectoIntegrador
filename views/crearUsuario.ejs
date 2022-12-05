@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include ("./partials/head")%>
+<body>
+    <%-include ("./partials/header")%>
+
+<main class="main-login-registrarse">
+
+    <div class="div-formularios-monitor">    
+        <form action="/users/create" method="POST" class="formulario-registrarse">
+            <h2>Usted esta creando un usuario</h2>
+                <input type="text" name="nombre" class="boton-registrarse is-invalid" value="<%=  locals.oldData ? oldData.nombre : null %>"placeholder="Nombre">
+                    <% if (locals.errors && errors.nombre ) { %>
+                        <div class="text-danger">
+                            <%= errors.nombre.msg  %> 
+                        </div> 
+                    <% } %> 
+                <input class="boton-registrarse" type="text" placeholder="Apellido" name="apellido"value="<%=  locals.oldData ? oldData.apellido : null %>">
+                    <% if (locals.errors && errors.apellido ) { %>
+                        <div class="text-danger">
+                            <%= errors.apellido.msg  %> 
+                        </div> 
+                    <% } %>           
+                <input class="boton-registrarse" placeholder="E-mail" name="email"value="<%=  locals.oldData ? oldData.email : null %>">
+                    <% if (locals.errors && errors.email ) { %>
+                        <div class="text-danger">
+                            <%= errors.email.msg  %> 
+                        </div> 
+                    <% } %>       
+                <input class="boton-registrarse" type="password"  placeholder="Contraseña" name="clave">
+                    <% if (locals.errors && errors.clave ) { %>
+                        <div class="text-danger">
+                            <%= errors.clave.msg  %> 
+                        </div> 
+                    <% } %>
+                <input class="boton-registrarse" type="password" placeholder="Repita Contraseña">
+                    <% if (locals.errors && errors.clave ) { %>
+                        <div class="text-danger">
+                            <%= errors.clave.msg  %> 
+                        </div> 
+                    <% } %>
+
+                <input class="boton-login-registrar" type="submit" value="CREAR">    
+                <a href="/users/editar" class="boton-login-registrar">EDITAR USUARIOS</a> 
+
+        </form>
+
+    </div>
+    <%-include ('./partials/cartas-beneficios') %>
+
+</main>
+    <%-include ("./partials/footer")%>
+</body>
+</html>

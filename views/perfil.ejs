@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include ("./partials/head")%>
+<body>
+    <%-include ("./partials/header")%>
+
+<main class="main-login-registrarse">
+    <div class="data-user"> 
+
+        <p>NOMBRE: <%= usuario.nombre %></p>
+        <p>APELLIDO: <%= usuario.apellido %></p>
+        <p>EMAIL: <%= usuario.email %></p>
+
+        
+            <a href="/users/editar/<%=usuario.id %>" class="button-edit-product">
+                <button type="submit" class="button">Editar Usuario</button>
+            </a>
+            <form action="/users/delete/<%=usuario.id %>?_method=DELETE" method="POST" style="margin-bottom: 25px">
+                <button type="submit" class="button">Eliminar Usuario</button>
+            </form>
+
+
+    </div>
+        <%-include ('./partials/cartas-beneficios') %>
+</main>
+        <%-include ("./partials/footer")%>
+</body>
+</html>

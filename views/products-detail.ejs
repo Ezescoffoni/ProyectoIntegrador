@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include ("./partials/head")%>
+<body>
+    <%-include ("./partials/header")%>
+
+    <main class="main-main">
+        <div class="div-detail-1">
+            <div class="div-detail-2">
+                <img src="/images/<%= producto.imagen %>">
+            </div>
+            <div>
+                    <div class="main-detalle-edit">  
+                            
+                            <h3 class="titulo-producto-detail"><%= producto.nombre %></h3>
+                    </div>
+                    <div>
+                        <div class="descripcion-prod-detail">
+                            <p id="precio-base">$<%=producto.precio%></p>
+                            
+                        </div>
+
+                        <div class="botones-productos">
+
+                            <a href="/users/carrito/<%=producto.id %>" class="button-edit-product">
+                                <button type="submit" class="button">Agregar al Carrito</button>
+                            </a>
+                            <% if ((locals.isLogged) && ((locals.userLogged.rol == "administrador") || (locals.userLogged.rol == "superadministrador")) ) { %>
+                            <a href="/products/edit/<%=producto.id %>" class="button-edit-product">
+                                <button type="submit" class="button">Editar Producto</button>
+                            </a>
+                            <form action="/products/delete/<%=producto.id %>?_method=DELETE" method="POST" style="margin-bottom: 25px">
+                                <button type="submit" class="button">Eliminar</button>
+                            </form>
+                            <% } %>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="comentario-producto">
+         
+        </div>
+        
+        
+
+    </main>
+
+         <%-include ("./partials/footer")%>
+
+
+</body>
+</html>
