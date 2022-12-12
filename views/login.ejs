@@ -9,7 +9,7 @@
         <form action="/users/login" method="POST" class="formulario-login">
             
             <h2>Ingresa a tu cuenta.</h2>
-            <p>Bienvenido nuevamente. Ingresa tus datos</p>
+            <p>Bienvenido. Ingresa tus datos</p>
             <form action="/users/perfil" method="POST">
                 <input class="boton-login" type="email" placeholder="E-mail" name="email">
                 <% if (locals.errors && errors.email) { %>
@@ -30,9 +30,6 @@
                 <input type="checkbox" name="remember_user"> Recordar mi usuario
             </label>
             <a href="/users/login/register" id="buttons-cuenta">Crea tu cuenta</a>
-            <a href="/users/login/register-edit" id="buttons-cuenta">Edita tu cuenta</a>
-            <a href="/users/login/register" id="buttons-cuenta-delete">Elimina tu cuenta</a>
-
         </form>
     </div>
         <%-include ('./partials/cartas-beneficios') %>

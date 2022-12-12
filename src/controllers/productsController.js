@@ -16,18 +16,6 @@ const productsController = {
                 res.render("products-detail", {producto: producto})
             })
     },
-	// function (req,res){
-    //     let idProducto = req.params.id;
-	// 	let objProducto;
-
-	// 	for (let o of productos){
-	// 		if (idProducto == o.id){
-	// 			objProducto=o;
-	// 			break;
-	// 		}
-	// 	}
-    //     res.render("products-detail", {producto: objProducto})
-    // },
 	/*Catalogo productos*/
 	catalogo: function (req,res){
         let productsdb = [];
@@ -52,18 +40,16 @@ const productsController = {
 		let material = await db.material.findAll()
 
 			res.render("product-create", {categorias: categorias, color: color, material: material})
-			//res.render("product-create")
         },
         
 	store: async (req, res) => {
-		// console.log(req.body)
-		// console.log(req.file)
 		let nombreImagen = req.file.filename;
 
 		await db.producto.create({
 			nombre: req.body.nombre,
 			precio: req.body.precio,
 			fecha_creacion: req.body.fecha_creacion,
+			descripcion: req.body.descripcion,
 			Categoria_id: req.body.categoria,
 			Color_id: req.body.color,
 			Material_id: req.body.material,
@@ -83,19 +69,6 @@ const productsController = {
                 res.render('product-edit',{producto: objProducto})
             })
     },
-	// function (req,res){
-
-    //     let idProducto = req.params.id;
-	// 	let objProducto;
-
-	// 	for (let o of productos){
-	// 		if (idProducto == o.id){
-	// 			objProducto=o;
-	// 			break;
-	// 		}
-	// 	}
-	// 	res.render('product-edit',{producto: objProducto})
-    //},
 	update: (req, res) => {
 		if (req.file != undefined){
 		db.producto.update({
@@ -136,26 +109,6 @@ const productsController = {
         });
     },
 
-		// let idProducto = req.params.id;
-		// let productoEncontrado;
-
-		// let Nproducts = productos.filter(function(e){
-		// 	return idProducto != e.id;
-		// })
-
-		// for (let producto of productos){
-		// 	if (producto.id == idProducto){
-		// 		productoEncontrado = producto;
-		// 	}
-		// }
-
-		// fs.unlinkSync(path.join(__dirname, "../../public/images", productoEncontrado.image));
-
-		// fs.writeFileSync(productoFilePath,JSON.stringify(Nproducts, null, " "));
-
-		
-	
-
 	probando123: async (req, res) => {
 		
         let categorias = await db.categoria.findAll()
@@ -164,41 +117,6 @@ const productsController = {
 				res.render("listaProductos", {categorias: categorias, color: color})
 		
         },
-
-    probando1234: async (req, res) => {
-		// console.log(req.body)
-		// console.log(req.file)
-		let nombreImagen = req.file.filename;
-
-		await db.producto.create({
-			nombre: req.body.nombre,
-			precio: req.body.precio,
-			fecha_creacion: req.body.fecha_creacion,
-			Categoria_id: req.body.categoria,
-			imagen: nombreImagen
-		})
-			.catch(function (error){
-				console.log(error)
-			})
-				
-			
-			res.redirect("/products")
-
-
-        // db.producto.create({
-        //     nombre: req.body.name,
-        //     precio: req.body.price,
-        //     fecha_creacion: req.body.create,
-        //     fecha_baja: req.body.baja,
-        //     imagen: req.body.imageProduct,
-        //     peso: req.body.peso,
-        //     medidas: req.body.medidas,
-        //     destacado: req.body.destacado,
-        //     oferta: req.body.oferta,
-        // })
-
-        // res.redirect("/")
-    },
 		
 }
 
