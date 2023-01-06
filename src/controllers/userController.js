@@ -132,10 +132,9 @@ const userController = {
     },
 
     cart: (req,res) => {
-        db.producto.findByPk(req.params.id)
-            .then(function(producto){
-                res.render("cart", {producto: producto})
-            })
+       
+                res.render("cart")
+          
       
     },
 

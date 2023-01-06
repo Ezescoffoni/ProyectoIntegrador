@@ -6,45 +6,18 @@
 
     <main class="main-main">
         <div class="div-detail-1">
-            <div class="div-detail-2">
-                <img src="/images/<%= producto.imagen %>">
-            </div>
-            <div>
-                    <div class="main-detalle-edit">  
-                            
-                            <h3 class="titulo-producto-detail"><%= producto.nombre %></h3>
-                    </div>
-                    <div>
-                        <div class="descripcion-prod-detail">
-                            <p id="precio-base">$<%=producto.precio%></p>
-                        </div>
-
-                        <div class="botones-productos">
-
-                            <% if (!(locals.isLogged)) { %>
-                            <a href="/users/login" class="button-edit-product">
-                                <button type="submit" class="button">Ir a comprar</button>
-                            </a>
-                            <% } else { %>
-                            <a href="#" class="button-edit-product botonComprar">
-                                <button type="submit" class="button">Comprar</button>
-                            </a>
-                            <% } %>
-                            <form action="/products/" style="margin-bottom: 25px">
-                                <button type="submit" class="button">Seguir Comprando</button>
-                            </form>
-                        </div>
-                    </div>
+            
+            <div id="contenedorCarrito">
+                   
             </div>
         </div>
-        
-        
+              
         <%-include ('./partials/cartas-beneficios') %>
     </main>
 
          <%-include ("./partials/footer")%>
 
-         <script src="/js/carrito.js" ></script>
+         <script src="/js/carritoCompras.js" ></script>
 </body>
 </html>
 

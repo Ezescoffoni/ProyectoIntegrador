@@ -1,17 +1,27 @@
 window.addEventListener("load", function (){
 
-let botonComprar = document.querySelector(".botonComprar .button")
+let botonComprar = document.querySelector("#botonComprar")
 
 botonComprar.addEventListener("click", function(){
 
-    let nombreProducto = document.querySelector("h3 .titulo-producto-detail")
-    let precioProducto = document.querySelector("p #precio-base")
-    let productoNuevo = {nombre: nombreProducto, precio: precioProducto};
-    let productos = JSON.parse(localStorage.getItem("carrito"));
+   
+    let imagenProducto = document.querySelector("#imagenCarro").src
+    let nombreProducto = document.querySelector("#nombreCarrito").innerHTML
+    let precioProducto = document.querySelector("#precio-base").innerHTML
+    let productoNuevo = {nombre: nombreProducto, precio: precioProducto, imagen: imagenProducto};
+    let productos = JSON.parse(sessionStorage.getItem("carrito"));
+
+    if (productos == undefined || productos == null) {
+
+        productos = []
+
+    }
 
     productos.push(productoNuevo)
 
-    localStorage.getItem("carrito", JSON.stringify(productos))
+    sessionStorage.setItem("carrito", JSON.stringify(productos))
+
+    alert("Agregado al carrito correctamente!")
         
 })
 

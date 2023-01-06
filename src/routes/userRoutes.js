@@ -42,7 +42,7 @@ router.get('/cerrarsesion', userController.cerrarSesion)
 //DETALLE PRODUCTO USERS
 // router.get("/", userController.detalle);
 
-router.get('/carrito/:id', userController.cart)
+router.get('/carrito', userController.cart)
 
 //router.get("/detail/:id",  upload.single("imagen"), productsController.productDetail)
 
