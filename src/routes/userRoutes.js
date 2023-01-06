@@ -44,5 +44,7 @@ router.get('/cerrarsesion', userController.cerrarSesion)
 
 router.get('/carrito/:id', userController.cart)
 
+//router.get("/detail/:id",  upload.single("imagen"), productsController.productDetail)
+
 
 module.exports = router;

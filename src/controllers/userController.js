@@ -132,16 +132,11 @@ const userController = {
     },
 
     cart: (req,res) => {
-        let idProducto = req.params.id;
-		let objProducto;
-
-		for (let o of productos){
-			if (idProducto == o.id){
-				objProducto=o;
-				break;
-			}
-		}
-        res.render("cart", {producto: objProducto})
+        db.producto.findByPk(req.params.id)
+            .then(function(producto){
+                res.render("cart", {producto: producto})
+            })
+      
     },
 
     delete: (req,res) => {
