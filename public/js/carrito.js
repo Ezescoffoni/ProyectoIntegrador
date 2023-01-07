@@ -8,7 +8,9 @@ botonComprar.addEventListener("click", function(){
     let imagenProducto = document.querySelector("#imagenCarro").src
     let nombreProducto = document.querySelector("#nombreCarrito").innerHTML
     let precioProducto = document.querySelector("#precio-base").innerHTML
-    let productoNuevo = {nombre: nombreProducto, precio: precioProducto, imagen: imagenProducto};
+    let botonEliminar = document.querySelector(".button").innerHTML
+
+    let productoNuevo = {nombre: nombreProducto, precio: precioProducto, imagen: imagenProducto, boton: botonEliminar};
     let productos = JSON.parse(sessionStorage.getItem("carrito"));
 
     if (productos == undefined || productos == null) {

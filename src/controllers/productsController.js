@@ -19,13 +19,14 @@ const productsController = {
 	/*Catalogo productos*/
 	catalogo: function (req,res){
         let productsdb = [];
-		db.producto.findAll({ include: [{association: "categorias"}, {association: "color"}, {association: "material"}]})
+		db.producto.findAll({ include: [{association: "categorias"}, {association: "color"}, {association: "material"}]}, {where: {borrado: 0}})
 			.then(function(resulProducto){
 				for (producto of resulProducto){
 					let objeto = {
 						id: producto.id,
 						nombre: producto.nombre,
 						imagen: producto.imagen,
+						borrado: producto.borrado
 					}
 					productsdb.push(objeto);
 				}
@@ -38,8 +39,11 @@ const productsController = {
         let categorias = await db.categoria.findAll()
 		let color = await db.color.findAll()
 		let material = await db.material.findAll()
+		let usuario = await db.usuario.findAll(
+			{where: {rol: "administrador"}}
+		)
 
-			res.render("product-create", {categorias: categorias, color: color, material: material})
+			res.render("product-create", {categorias: categorias, color: color, material: material, usuario: usuario})
         },
         
 	store: async (req, res) => {
@@ -53,6 +57,8 @@ const productsController = {
 			Categoria_id: req.body.categoria,
 			Color_id: req.body.color,
 			Material_id: req.body.material,
+			Admin_id: req.body.usuario,
+			borrado: 0,
 			imagen: nombreImagen
 		})
 			.catch(function (error){
@@ -98,15 +104,25 @@ const productsController = {
 		}
 	},
 	destroy: (req, res) => {
-        db.producto.destroy({
-            where: {
-                id: req.params.id,
-            },
-        }).then(function (resultado) {
-            if (resultado) {
-                res.redirect("/");
-            }
-        });
+        db.producto.update({
+			borrado: 1
+		},
+		{where: { id: req.params.id } })
+			.then(function(resultado){
+				if (resultado){
+					res.redirect("/");
+				}
+			})
+		
+		// db.producto.destroy({
+        //     where: {
+        //         id: req.params.id,
+        //     },
+        // }).then(function (resultado) {
+        //     if (resultado) {
+        //         res.redirect("/");
+        //     }
+        // });
     },
 
 	probando123: async (req, res) => {

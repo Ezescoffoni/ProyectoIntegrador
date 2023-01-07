@@ -74,6 +74,20 @@
                 </div>
             <% } %>
 
+            <label class="form-label">Elegir usuario:</label>
+            <select name="usuario" class="boton-login" value="<%= locals.oldData ? oldData.usuario : null %>">
+                <% for(let user of usuario) { %>
+                    <option value="<%= user.id %>">
+                        <%= user.email%>
+                    </option>
+                <% } %>
+            </select>
+            <% if (locals.errors && errors.usuario) { %>
+                <div class="texto-rojo">
+                    <%= errors.usuario.msg %> 
+                </div>
+            <% } %>
+
             <label class="form-label">Fecha Creacion:</label>
             <input type="date" name="fecha_creacion" class="boton-login">
 
@@ -94,7 +108,7 @@
                     <%= errors.descripcion.msg %> 
                 </div>
             <% } %>
-
+           
             <button type="submit" class="button-edit">Guardar producto</button>
 
 

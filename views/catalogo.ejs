@@ -11,6 +11,7 @@
         </div>
         <div class="probando4321">
         <% for (let obje of prod) { %>
+            <% if (obje.borrado == 0) { %>
         <div class="contenedor-img">
             <nav class="productos">
                 <a href="/products/detail/<%= obje.id %>">
@@ -26,6 +27,7 @@
                 </a>
             </nav>
         </div>
+        <% } %>
         <% } %>
         </div>
     </main>
