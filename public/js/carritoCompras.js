@@ -37,7 +37,7 @@ window.addEventListener("load", function (){
         imgCarro.src = prod.imagen
         h31.innerText = prod.nombre
         p1.innerText = prod.precio
-        cont1.innerHTML = prod.boton
+        cont1.innerText = "Eliminar"
         contenedor.appendChild(div3)
         contenedor.appendChild(div1)
         contenedor.appendChild(div2)

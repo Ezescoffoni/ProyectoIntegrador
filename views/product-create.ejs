@@ -15,22 +15,28 @@
         
             <label for="name" class="form-label">Nombre del producto:</label>
             <input type="text" id="name" name="nombre" placeholder="Ej: Espejo clasico" 
-                   class="boton-login"
+                   class="boton-login nombreP"
                    value="<%= locals.oldData ? oldData.nombre : null %>">
             <% if (locals.errors && errors.nombre) { %>
                 <div class="texto-rojo">
                     <%= errors.nombre.msg %> 
                 </div>
             <% } %>
+            <div class="errorNombreP">
+                        
+            </div>
 
             <label for="price" class="form-label">Precio del producto:</label>
-            <input type="text" id="price" name="precio" placeholder="Ej: 12000" class="boton-login"
+            <input type="text" id="price" name="precio" placeholder="Ej: 12000" class="boton-login precio"
             value="<%= locals.oldData ? oldData.precio : null %>">
             <% if (locals.errors && errors.precio) { %>
                 <div class="texto-rojo">
                     <%= errors.precio.msg %> 
                 </div>
             <% } %>
+            <div class="errorPrecioP">
+                        
+            </div>
 
             <label class="form-label">Material:</label>
             <select name="material" class="boton-login" value="<%= locals.oldData ? oldData.material : null %>">
@@ -89,25 +95,35 @@
             <% } %>
 
             <label class="form-label">Fecha Creacion:</label>
-            <input type="date" name="fecha_creacion" class="boton-login">
+            <input type="date" name="fecha_creacion" class="boton-login fecha">
+            <div class="errorFechaP">
+                        
+            </div>
 
             <label for="description" class="form-label" id="imagen-select">Seleccionar Imagen:</label>
             
-            <input type="file" name="imagen" class="boton-login-select">
+            
+            <input type="file" name="imagen" class="boton-login-select imagen">
             <% if (locals.errors && errors.imagen) { %>
                 <div class="texto-rojo">
                     <%= errors.imagen.msg %> 
                 </div>
             <% } %>
+            <div class="errorImagenP">
+                        
+            </div>
 
             <label for="description" class="form-label">Descripción:</label>
-            <textarea name="descripcion" id="descripcion" class="textarea-create"
+            <textarea name="descripcion" id="descripcion" class="textarea-create descripcion"
             value="<%= locals.oldData ? oldData.descripcion : null %> " placeholder="Escribir breve descripcion del producto, puede incluir peso y medidas de ser necesario."></textarea>
             <% if (locals.errors && errors.descripcion) { %>
                 <div class="texto-rojo">
                     <%= errors.descripcion.msg %> 
                 </div>
             <% } %>
+            <div class="errorDescripcionP">
+                        
+            </div>
            
             <button type="submit" class="button-edit">Guardar producto</button>
 
@@ -117,6 +133,7 @@
     </div>
 
         <%-include ("./partials/footer")%>
+        <script src="/js/newProduct.js"></script>
 
 </body>
 </html>
