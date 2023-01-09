@@ -32,7 +32,7 @@ const userController = {
             if (req.body.remember_user) {
                 res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2 }) //equivale a 2 minutos
             }
-            return res.redirect("/products")
+            return res.redirect("/")
             } 
             return res.render('login', {
                 errors: {

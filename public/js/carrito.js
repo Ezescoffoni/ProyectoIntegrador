@@ -1,7 +1,7 @@
 window.addEventListener("load", function (){
 
 let botonComprar = document.querySelector("#botonComprar")
-// let botonAgregarCarrito = document.querySelector(".button-edit-product");
+//  let botonAgregarCarrito = document.querySelector(".button");
 
 botonComprar.addEventListener("click", function(){
 
@@ -35,15 +35,15 @@ botonComprar.addEventListener("click", function(){
         
 })
 
-// botonAgregarCarrito.addEventListener("click", function(){
-//     Swal.fire({
-//         position: 'center',
-//         icon: 'success',
-//         title: 'Agregado al carrito correctamente',
-//         showConfirmButton: false,
-//         timer: 1500
-//     })
-// })
+    // botonAgregarCarrito.addEventListener("click", function(){
+    //     Swal.fire({
+    //         position: 'center',
+    //         icon: 'success',
+    //         title: 'Agregado al carrito correctamente',
+    //         showConfirmButton: false,
+    //         timer: 1500
+    //     })
+    // })
 
 
 })
