@@ -1,6 +1,7 @@
 window.addEventListener("load", function (){
 
     let formulario = document.querySelector("form.formulario-create")
+    let botonCrearProducto = document.querySelector(".button-edit")
     
     formulario.addEventListener("submit", function(e){
         let errorNombreP = []
@@ -95,5 +96,14 @@ window.addEventListener("load", function (){
         //(errorImagenP.length > 0) se saco del if
     }) 
     
-    
+    botonCrearProducto.addEventListener("click", function(){
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'El nuevo producto fue añadido correctamente',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    })
+
     })

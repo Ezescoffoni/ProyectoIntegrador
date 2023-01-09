@@ -1,6 +1,7 @@
 window.addEventListener("load", function (){
 
-    let formulario = document.querySelector("form.formulario-registrarse")
+    let formulario = document.querySelector("form.formulario-registrarse");
+    let botonCrearUsuario = document.querySelector(".boton-login-registrar");
     
     formulario.addEventListener("submit", function(e){
         let errorNombre = []
@@ -97,6 +98,16 @@ window.addEventListener("load", function (){
         }
 
     }) 
+
+    botonCrearUsuario.addEventListener("click", function(){
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Usuario creado correctamente',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    })
     
     
     })

@@ -1,6 +1,7 @@
 window.addEventListener("load", function (){
 
 let botonComprar = document.querySelector("#botonComprar")
+// let botonAgregarCarrito = document.querySelector(".button-edit-product");
 
 botonComprar.addEventListener("click", function(){
 
@@ -23,9 +24,26 @@ botonComprar.addEventListener("click", function(){
 
     sessionStorage.setItem("carrito", JSON.stringify(productos))
 
-    alert("Agregado al carrito correctamente!")
+    alert("Agregado al carrito correctamente!")    
+    // Swal.fire({
+    //     position: 'center',
+    //     icon: 'success',
+    //     title: 'Agregado al carrito correctamente',
+    //     showConfirmButton: false,
+    //     timer: 1500
+    // })
         
 })
+
+// botonAgregarCarrito.addEventListener("click", function(){
+//     Swal.fire({
+//         position: 'center',
+//         icon: 'success',
+//         title: 'Agregado al carrito correctamente',
+//         showConfirmButton: false,
+//         timer: 1500
+//     })
+// })
 
 
 })
