@@ -97,17 +97,16 @@ window.addEventListener("load", function (){
             e.preventDefault()
         }
 
-    }) 
-
-    botonRegistrarse.addEventListener("click", function(){
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Usuario registrado correctamente',
-            showConfirmButton: false,
-            timer: 1500
+        botonRegistrarse.addEventListener("click", function(){
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Usuario registrado correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            })
         })
-    })
-    
+
+    })  
     
     })

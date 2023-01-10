@@ -97,17 +97,16 @@ window.addEventListener("load", function (){
             e.preventDefault()
         }
 
-    }) 
-
-    botonCrearUsuario.addEventListener("click", function(){
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Usuario creado correctamente',
-            showConfirmButton: false,
-            timer: 1500
+        botonCrearUsuario.addEventListener("click", function(){
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Usuario creado correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            })
         })
     })
     
     
-    })
+})

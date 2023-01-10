@@ -7,16 +7,18 @@
 <main class="main-login-registrarse">
     <div class="data-user"> 
 
-        <p>NOMBRE: <%= usuario.nombre %></p>
-        <p>APELLIDO: <%= usuario.apellido %></p>
-        <p>EMAIL: <%= usuario.email %></p>
+        <h1>Perfil del usuario</h1>
+        <p>Nombre: <%= usuario.nombre %></p>
+        <p>Apellido: <%= usuario.apellido %></p>
+        <p>Email: <%= usuario.email %></p>
+        <br>
 
         
-            <a href="/users/editar/<%=usuario.id %>" class="button-edit-product">
+            <a href="/users/editar/<%=usuario.id %>" class="button-edit-product" style="text-decoration: none;">
                 <button type="submit" class="button">Editar Usuario</button>
             </a>
             <form action="/users/delete/<%=usuario.id %>?_method=DELETE" method="POST" style="margin-bottom: 25px">
-                <button type="submit" class="button">Eliminar Usuario</button>
+                <button type="submit" class="button" id="botonBorrado">Eliminar Usuario</button>
             </form>
 
 
@@ -24,5 +26,7 @@
         <%-include ('./partials/cartas-beneficios') %>
 </main>
         <%-include ("./partials/footer")%>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/perfilUsuario.js" ></script>
 </body>
 </html>

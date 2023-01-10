@@ -94,16 +94,15 @@ window.addEventListener("load", function (){
         }
 
         //(errorImagenP.length > 0) se saco del if
-    }) 
-    
-    botonCrearProducto.addEventListener("click", function(){
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'El nuevo producto fue añadido correctamente',
-            showConfirmButton: false,
-            timer: 1500
+        botonCrearProducto.addEventListener("click", function(){
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'El nuevo producto fue añadido correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            })
         })
-    })
+    }) 
 
     })
