@@ -1,8 +1,8 @@
 window.addEventListener("load", function(){
-    let formu = document.querySelector('form');
+    let formu = document.querySelector('.formulario-eliminar');
     let botonBorrado = document.querySelector('#botonBorrado')
 
-    botonBorrado.addEventListener("click", function(event){
+    formu.addEventListener("submit", function(event){
         event.preventDefault()
         Swal.fire({
             title: '¿Estas seguro?',
@@ -19,6 +19,7 @@ window.addEventListener("load", function(){
                 'El usuario ha sido eliminado',
                 'success'
               )
+              formu.submit();
             }
         })
 
