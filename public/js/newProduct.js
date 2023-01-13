@@ -4,10 +4,11 @@ window.addEventListener("load", function (){
     let botonCrearProducto = document.querySelector(".button-edit")
     
     formulario.addEventListener("submit", function(e){
+       // e.preventDefault()
         let errorNombreP = []
         let errorPrecioP = []
         let errorFechaP = []
-        let errorImagenP = []
+       // let errorImagenP = []
         let errorDescripcionP = []
 
         //Nombre
@@ -22,7 +23,7 @@ window.addEventListener("load", function (){
         if (errorNombreP.length > 0){
             let ulErrorNombreP = document.querySelector("div.errorNombreP")
             for (let i = 0; i < errorNombreP.length; i++){
-                ulErrorNombreP.innerHTML += errorNombreP[i] 
+                ulErrorNombreP.innerHTML = errorNombreP[i] 
                 ulErrorNombreP.style.color = "red"
             }
         }
@@ -31,13 +32,13 @@ window.addEventListener("load", function (){
         let campoPrecio = document.querySelector("input.precio")
 
         if (campoPrecio.value == ""){
-            errorPrecioP.push("El campo apellido es obligatorio")
+            errorPrecioP.push("El campo precio es obligatorio")
         } 
 
         if (errorPrecioP.length > 0){
             let ulErrorPrecioP = document.querySelector("div.errorPrecioP")
             for (let i = 0; i < errorPrecioP.length; i++){
-                ulErrorPrecioP.innerHTML += errorPrecioP[i] 
+                ulErrorPrecioP.innerHTML = errorPrecioP[i] 
                 ulErrorPrecioP.style.color = "red"
             }
         }
@@ -52,7 +53,7 @@ window.addEventListener("load", function (){
         if (errorFechaP.length > 0){
             let ulErrorFechaP = document.querySelector("div.errorFechaP")
             for (let i = 0; i < errorFechaP.length; i++){
-                ulErrorFechaP.innerHTML += errorFechaP[i] 
+                ulErrorFechaP.innerHTML = errorFechaP[i] 
                 ulErrorFechaP.style.color = "red"
             }
         }
@@ -67,7 +68,7 @@ window.addEventListener("load", function (){
         // if (errorImagenP.length > 0){
         //     let ulErrorImagenP = document.querySelector("div.errorImagenP")
         //     for (let i = 0; i < errorImagenP.length; i++){
-        //         ulErrorImagenP.innerHTML += errorImagenP[i] 
+        //         ulErrorImagenP.innerHTML = errorImagenP[i] 
         //         ulErrorImagenP.style.color = "red"
         //     }
         // }
@@ -84,17 +85,12 @@ window.addEventListener("load", function (){
         if (errorDescripcionP.length > 0){
             let ulErrorDescripcionP = document.querySelector("div.errorDescripcionP")
             for (let i = 0; i < errorDescripcionP.length; i++){
-                ulErrorDescripcionP.innerHTML += errorDescripcionP[i] 
+                ulErrorDescripcionP.innerHTML = errorDescripcionP[i] 
                 ulErrorDescripcionP.style.color = "red"
             }
         }
 
-        if ((errorNombreP.length > 0) || (errorPrecioP.length > 0) || (errorFechaP.length > 0) || (errorDescripcionP.length > 0)) {
-            e.preventDefault()
-        }
-
-        //(errorImagenP.length > 0) se saco del if
-        botonCrearProducto.addEventListener("click", function(){
+        if ((errorNombreP.length == 0) && (errorPrecioP.length == 0) && (errorFechaP.length == 0) && (errorDescripcionP.length == 0)) {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -102,7 +98,12 @@ window.addEventListener("load", function (){
                 showConfirmButton: false,
                 timer: 1500
             })
-        })
+
+            formulario.submit()
+        }
+
+
+
     }) 
 
     })

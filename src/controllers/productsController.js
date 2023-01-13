@@ -47,6 +47,16 @@ const productsController = {
         },
         
 	store: async (req, res) => {
+		
+		// const result = validationResult(req);
+		
+		// if (result.errors.length > 0 ){
+		// 	return res.render("product-create", {errors: result.mapped(),
+		// 	oldData: req.body
+		// 	})
+
+ 		// } else {
+		
 		let nombreImagen = req.file.filename;
 
 		await db.producto.create({
@@ -64,6 +74,7 @@ const productsController = {
 			.catch(function (error){
 				console.log(error)
 			})	
+		// }
 			
 			res.redirect("/products")
 

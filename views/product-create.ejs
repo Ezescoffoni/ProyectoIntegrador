@@ -46,11 +46,7 @@
                     </option>
                 <% } %>
             </select>
-            <% if (locals.errors && errors.material) { %>
-                <div class="texto-rojo">
-                    <%= errors.material.msg %> 
-                </div>
-            <% } %>
+            
 
             <label class="form-label">Color:</label>
             <select name="color" class="boton-login" value="<%= locals.oldData ? oldData.color : null %>">
@@ -60,11 +56,7 @@
                     </option>
                 <% } %>
             </select>
-            <% if (locals.errors && errors.color) { %>
-                <div class="texto-rojo">
-                    <%= errors.color.msg %> 
-                </div>
-            <% } %>
+            
 
             <label class="form-label">Categoría:</label>
             <select name="categoria" class="boton-login" value="<%= locals.oldData ? oldData.categoria : null %>">
@@ -74,11 +66,7 @@
                     </option>
                 <% } %>
             </select>
-            <% if (locals.errors && errors.categoria) { %>
-                <div class="texto-rojo">
-                    <%= errors.categoria.msg %> 
-                </div>
-            <% } %>
+         
 
             <label class="form-label">Elegir usuario:</label>
             <select name="usuario" class="boton-login" value="<%= locals.oldData ? oldData.usuario : null %>">
@@ -88,11 +76,7 @@
                     </option>
                 <% } %>
             </select>
-            <% if (locals.errors && errors.usuario) { %>
-                <div class="texto-rojo">
-                    <%= errors.usuario.msg %> 
-                </div>
-            <% } %>
+         
 
             <label class="form-label">Fecha Creacion:</label>
             <input type="date" name="fecha_creacion" class="boton-login fecha">

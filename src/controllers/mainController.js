@@ -13,7 +13,7 @@ const mainController = {
         // const productos = JSON.parse(fs.readFileSync(productoFilePath, 'utf-8'));
         // res.render("index", {ps: productos})
         let productsdb = [];
-        db.producto.findAll({ include: [{association: "categorias"}, {association: "color"}, {association: "material"}]})
+        db.producto.findAll({ include: [{association: "categorias"}, {association: "color"}, {association: "material"}], where: {borrado: 0}})
             .then(function(resulProducto){
                 for (producto of resulProducto){
                     let objeto = {

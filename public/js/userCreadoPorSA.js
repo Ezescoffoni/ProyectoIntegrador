@@ -4,6 +4,8 @@ window.addEventListener("load", function (){
     let botonCrearUsuario = document.querySelector(".boton-login-registrar");
     
     formulario.addEventListener("submit", function(e){
+
+        e.preventDefault()
         let errorNombre = []
         let errorApellido = []
         let errorEmail = []
@@ -22,7 +24,7 @@ window.addEventListener("load", function (){
         if (errorNombre.length > 0){
             let ulErrorNombre = document.querySelector("div.errorNombre")
             for (let i = 0; i < errorNombre.length; i++){
-                ulErrorNombre.innerHTML += errorNombre[i] 
+                ulErrorNombre.innerHTML = errorNombre[i] 
                 ulErrorNombre.style.color = "red"
             }
         }
@@ -37,7 +39,7 @@ window.addEventListener("load", function (){
         if (errorApellido.length > 0){
             let ulErrorApellido = document.querySelector("div.errorApellido")
             for (let i = 0; i < errorApellido.length; i++){
-                ulErrorApellido.innerHTML += errorApellido[i] 
+                ulErrorApellido.innerHTML = errorApellido[i] 
                 ulErrorApellido.style.color = "red"
             }
         }
@@ -54,7 +56,7 @@ window.addEventListener("load", function (){
         if (errorEmail.length > 0){
             let ulErrorEmail = document.querySelector("div.errorEmail")
             for (let i = 0; i < errorEmail.length; i++){
-                ulErrorEmail.innerHTML += errorEmail[i] 
+                ulErrorEmail.innerHTML = errorEmail[i] 
                 ulErrorEmail.style.color = "red"
             }
         }
@@ -71,7 +73,7 @@ window.addEventListener("load", function (){
         if (errorPassword.length > 0){
             let ulErrorContraseña = document.querySelector("div.errorContraseña")
             for (let i = 0; i < errorPassword.length; i++){
-                ulErrorContraseña.innerHTML += errorPassword[i] 
+                ulErrorContraseña.innerHTML = errorPassword[i] 
                 ulErrorContraseña.style.color = "red"
             }
         }
@@ -88,16 +90,12 @@ window.addEventListener("load", function (){
         if (errorPassword2.length > 0){
             let ulErrorContraseña2 = document.querySelector("div.errorContraseña1")
             for (let i = 0; i < errorPassword2.length; i++){
-                ulErrorContraseña2.innerHTML += errorPassword2[i] 
+                ulErrorContraseña2.innerHTML = errorPassword2[i] 
                 ulErrorContraseña2.style.color = "red"
             }
         }
 
-        if ((errorNombre.length > 0) || (errorApellido.length > 0) || (errorEmail.length > 0) || (errorPassword.length > 0) || (errorPassword2.length > 0)){
-            e.preventDefault()
-        }
-
-        botonCrearUsuario.addEventListener("click", function(){
+        if ((errorNombre.length == 0) && (errorApellido.length == 0) && (errorEmail.length == 0) && (errorPassword.length == 0) && (errorPassword2.length == 0)){
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -105,7 +103,10 @@ window.addEventListener("load", function (){
                 showConfirmButton: false,
                 timer: 1500
             })
-        })
+            formulario.submit()
+        }
+
+
     })
     
     

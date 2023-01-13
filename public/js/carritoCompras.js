@@ -38,6 +38,7 @@ window.addEventListener("load", function (){
         h31.innerText = prod.nombre
         p1.innerText = prod.precio
         cont1.innerText = "Eliminar"
+        
         contenedor.appendChild(div3)
         contenedor.appendChild(div1)
         contenedor.appendChild(div2)
@@ -46,9 +47,7 @@ window.addEventListener("load", function (){
         div2.appendChild(p1)
         div1.appendChild(h31)
         contenedor1.appendChild(cont1)
-        
-        
-
+               
     }
  
 })
