@@ -1,3 +1,5 @@
+// const { render } = require("ejs")
+
 window.addEventListener("load", function (){
 
 let botonComprar = document.querySelector("#botonComprar")
@@ -6,7 +8,6 @@ let botonComprar = document.querySelector("#botonComprar")
 
 botonComprar.addEventListener("click", function(){
 
-   
     let imagenProducto = document.querySelector("#imagenCarro").src
     let nombreProducto = document.querySelector("#nombreCarrito").innerHTML
     let precioProducto = document.querySelector("#precio-base").innerHTML
@@ -24,31 +25,37 @@ botonComprar.addEventListener("click", function(){
 
     productos.push(productoNuevo)
     sessionStorage.setItem("carrito", JSON.stringify(productos))
+    
     alert("Agregado al carrito correctamente!")    
-
-
-    // Swal.fire({
-    //     position: 'center',
-    //     icon: 'success',
-    //     title: 'Agregado al carrito correctamente',
-    //     showConfirmButton: false,
-    //     timer: 15000
-    // })
-   
+     
         
-})
-
-
-
-    // botonAgregarCarrito.addEventListener("click", function(){
-    //     Swal.fire({
-    //         position: 'center',
-    //         icon: 'success',
-    //         title: 'Agregado al carrito correctamente',
-    //         showConfirmButton: false,
-    //         timer: 1500
-    //     })
-    // })
+    })
 
 
 })
+
+   // Swal.fire({
+        //         title: '¿Desea agregar al carrito?',
+        //         icon: 'warning',
+        //         showCancelButton: true,
+        //         confirmButtonColor: '#3085d6',
+        //         cancelButtonColor: '#d33',
+        //         confirmButtonText: 'Si',
+        //         timer: 4000
+        // }).then((result) => {
+        //     if (result.isConfirmed) {
+        //         Swal.fire(
+        //         'Agregado!',
+        //         'El producto ha sido agregado',
+        //         'success'
+        //     )
+                
+        //     }
+        // })
+        // Swal.fire({
+        //     position: 'center',
+        //     icon: 'success',
+        //     title: 'Agregado al carrito correctamente',
+        //     showConfirmButton: true,
+        //     timer: 4000
+        // })

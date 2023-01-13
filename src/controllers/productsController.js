@@ -47,18 +47,17 @@ const productsController = {
         },
         
 	store: async (req, res) => {
-		
-		// const result = validationResult(req);
-		
-		// if (result.errors.length > 0 ){
-		// 	return res.render("product-create", {errors: result.mapped(),
-		// 	oldData: req.body
-		// 	})
 
- 		// } else {
+		let categorias = await db.categoria.findAll()
+		let color = await db.color.findAll()
+		let material = await db.material.findAll()
+		let usuario = await db.usuario.findAll(
+			{where: {rol: "administrador"}}
+		)
 		
+		let result = validationResult(req);
+		if (result.isEmpty()){
 		let nombreImagen = req.file.filename;
-
 		await db.producto.create({
 			nombre: req.body.nombre,
 			precio: req.body.precio,
@@ -71,12 +70,10 @@ const productsController = {
 			borrado: 0,
 			imagen: nombreImagen
 		})
-			.catch(function (error){
-				console.log(error)
-			})	
-		// }
-			
-			res.redirect("/products")
+			res.redirect("/products");
+		} else {
+			return res.render("product-create", {categorias: categorias, color: color, material: material, usuario: usuario, errors: result.mapped()})
+		}		
 
     },
 	/*Editar producto*/
