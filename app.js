@@ -8,11 +8,11 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const cookies = require('cookie-parser');
 
-
-
 const publicPath = path.resolve (__dirname, "./public" );
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware')
+const apiProductsRouter = require('./src/routes/api/apiProducts');
+const apiUsersRouter = require('./src/routes/api/apiUsers');
 
 app.use(session({
     secret: "shh, It's a secret",
@@ -29,6 +29,8 @@ app.use(methodOverride('_method'));
 app.use("/", mainRoutes);
 app.use("/users", userRoutes);
 app.use("/products", productsRoutes);
+app.use('/api/products', apiProductsRouter);
+app.use('/api/users', apiUsersRouter);
 
 //console.log(publicPath)
 
