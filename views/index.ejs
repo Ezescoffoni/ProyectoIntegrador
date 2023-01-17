@@ -22,8 +22,8 @@
         <p>Productos Destacados</p>
     </div>
     <div class="probando4321">
-    <% for (let obj of ps) { %>
 
+    <% for (let obj of ps) { %>
     <div class="contenedor-img">
         <nav class="productos">
             <a href="/products/detail/<%= obj.id %>" class="anchor-home">
@@ -39,7 +39,6 @@
             </a>           
         </nav>
     </div>
-
     <% } %>
     </div>
     <%-include ('./partials/cartas-beneficios') %>

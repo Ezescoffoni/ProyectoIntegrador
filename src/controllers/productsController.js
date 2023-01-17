@@ -10,7 +10,8 @@ const db = require('../database/models');
 
 const productsController = {
 	/*Detalle producto*/
-    productDetail: (req,res) => {
+    productDetail: async (req,res) => {
+
         db.producto.findByPk(req.params.id)
             .then(function(producto){
                 res.render("products-detail", {producto: producto})
