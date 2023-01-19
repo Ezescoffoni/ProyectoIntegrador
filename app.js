@@ -7,8 +7,11 @@ const app = express ();
 const methodOverride = require('method-override');
 const session = require('express-session');
 const cookies = require('cookie-parser');
+let cors = require("cors")
 
 const publicPath = path.resolve (__dirname, "./public" );
+
+app.use(cors())
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware')
 const apiProductsRouter = require('./src/routes/api/apiProducts');
@@ -25,7 +28,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
 
-
 app.use("/", mainRoutes);
 app.use("/users", userRoutes);
 app.use("/products", productsRoutes);
@@ -35,6 +37,7 @@ app.use('/api/users', apiUsersRouter);
 //console.log(publicPath)
 
 app.use (express.static (publicPath));
+
 app.set('view engine', 'ejs');
 
 app.listen(process.env.PORT || 3100, () => {
